@@ -43,7 +43,7 @@ const userSignup = async (req, res) => {
   });
 
   if (checkUser) {
-    if (checkUser.email == email) {
+    if (checkUser) {
       return res.status(400).json({
         status: "fail",
         data: "Email already exist",
@@ -94,7 +94,7 @@ const userLogin = async (req, res) => {
     });
   }
 
-  // validate if user exists
+  // check if user exists
   const user = await UserModel.findOne({
     where: { email: email },
   });
@@ -112,7 +112,7 @@ const userLogin = async (req, res) => {
     const token = getSignedJwtToken(user);
 
     res.status(201).json({
-      data: user,
+       user,
       token,
     });
   }
@@ -122,10 +122,10 @@ const userLogin = async (req, res) => {
   if (!userPassword) {
     return res.status(404).json({
       status: "fail",
-      msg: "Incorrect Password",
+      msg: "Email or password is not correct.",
     });
   }
 }
 ;
 
-module.exports = { userSignup };
+module.exports = { userSignup , userLogin};

@@ -61,7 +61,7 @@ Create new User (User Signup)
         Response Body:
              { 
             "id": 1,
-             "first_name": "Jane",
+            "first_name": "Jane",
             "last_name": "Doe",
             "username" : "janey",
             "email": "janedoe@gmail.com",
@@ -71,11 +71,37 @@ Create new User (User Signup)
             "gender": "female
          }
 
-* To fetch a person's details (GET request)
+* To login a user (POST request)
 
 ```shell
-http://localhost:4001/api/user_id
+http://localhost:4001/api/auth/login
 ```
+
+User Login Endpoint [http://localhost:4005/api/auth/login](http://localhost:4005/api/auth/login)  
+
+ User Login
+
+    Request:  
+        HTTP Method: POST  
+        Endpoint: /api/auth/login
+        Request Body:
+            { 
+                "email": "janedoe@gmail.com",
+                "password": "123456",
+            }
+        Response: HTTP Status Code: 201 Created
+        Response Body:
+             { 
+            "id": 1,
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "username" : "janey",
+            "email": "janedoe@gmail.com",
+            "phone_number": "0801234567",
+            "password": Hashed Password,
+            "date_of_birth" : "10/10/2000",
+            "gender": "female
+         }
 
 * To modify an existing person's details (PATCH request)
 

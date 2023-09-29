@@ -1,7 +1,5 @@
 const joi = require('joi');
 
-// const SignUpValidationSchema = async (req, res, next) => {
-//     try{
 const schema = joi.object({
             username: joi.string().regex(/^[a-zA-Z0-9._-]{3,16}$/i),
             password: joi.string().required(),
@@ -23,18 +21,32 @@ const SignUpValidationSchema = async (req, res, next) => {
         next();
     }
 }
-//          await schema.validate(req.body, schema, { abortEarly: true });
 
-           
-// }catch (error) {
-//     return res.status(422).json({
-//         message: error.message,
-//         success: false
-//     })
-// }  
-   
-    
-   
+const loginSchema = joi.object({
+    password: joi.string().required(),
+    email: joi.string().email().required(),
+    });
+
+const LoginValidationSchema = async (req, res, next) => {
+const { error } = loginSchema.validate(req.body);
+    if (error) {
+        return res.status(406).json({
+         message: error.message,
+        success: false})
+    }else {
+    next();
+    };
+};
+
+
+
+
+
+
+
+
+
+
 module.exports = {
-    SignUpValidationSchema
+    SignUpValidationSchema, LoginValidationSchema
 }
