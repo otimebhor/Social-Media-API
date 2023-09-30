@@ -10,12 +10,6 @@ const createPost = async (req, res) => {
     req.user
     const user = req.user
 
-    //find user 
-    // const user = await UserModel.findByPk(userId);
-    
-    // if(!user){
-    //     res.status(404).json("User not found")
-    // }
     const newPost = await PostModel.create({ title: title, content: content, userId: user.id});
 
     if (newPost) {
@@ -31,5 +25,12 @@ const createPost = async (req, res) => {
     }
 };
 
+// get all posts
+const getPosts = async(req, res) => {
+    const posts = await PostModel.findAll();
 
-module.exports = { createPost };
+    return res.status(200).json(posts)
+};
+
+
+module.exports = { createPost, getPosts };

@@ -127,9 +127,36 @@ Create Post
                 "content": "Post Content"
             }
 
-            
-* To remove person (DELETE request)
+
+* To read all posts (GET request)
 
 ```shell
-http://localhost:4001/api/user_id
+http://localhost:4001/api/posts/
 ```
+Get all Posts Endpoint [http://localhost:4005/api/posts/](http://localhost:4005/api/posts/)  
+
+Get All Posts
+
+    Request:  
+        HTTP Method: GET  
+        Endpoint: /api/posts/
+        Request Body:
+            { }
+        Response: HTTP Status Code: 200 OK
+        Response Body:
+            {
+                { 
+                "id": 1
+                "title": "Post Title",
+                "content": "Post Content"
+                }, 
+                {
+                "id": 2
+                "title": "Post Title",
+                "content": "Post Content"
+                }
+            
+            
+            }
+
+            
