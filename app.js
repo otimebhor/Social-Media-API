@@ -2,7 +2,8 @@ const express = require("express");
 
 const DB = require("./database");
 // const userRouter = require("./Users/userRouter");
-const { authRoutes } = require("./Auth/authRouter");
+const { AuthRouter } = require("./Auth/authRouter");
+const { PostRouter } = require("./Post/postRouter");
 
 const PORT = 4005;
 const app = express();
@@ -11,7 +12,8 @@ app.use(express.json());
 
 
 // Routes
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', AuthRouter);
+app.use('/api/posts', PostRouter);
 
 
 

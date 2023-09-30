@@ -67,6 +67,8 @@ const UserModel = DB.define('user', {
 });
 
 
+
+
 UserModel.sync({ alter: true }).then(() => {
     console.log('User table created successfully!');
  }).catch((error) => {

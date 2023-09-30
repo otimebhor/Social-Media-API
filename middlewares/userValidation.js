@@ -11,7 +11,7 @@ const schema = joi.object({
             date_of_birth: joi.string(),
             });
         
-const SignUpValidationSchema = async (req, res, next) => {
+const SignUpValidation = async (req, res, next) => {
     const { error } = schema.validate(req.body);
     if (error) {
         return res.status(406).json({
@@ -27,7 +27,7 @@ const loginSchema = joi.object({
     email: joi.string().email().required(),
     });
 
-const LoginValidationSchema = async (req, res, next) => {
+const LoginValidation = async (req, res, next) => {
 const { error } = loginSchema.validate(req.body);
     if (error) {
         return res.status(406).json({
@@ -48,5 +48,5 @@ const { error } = loginSchema.validate(req.body);
 
 
 module.exports = {
-    SignUpValidationSchema, LoginValidationSchema
+    SignUpValidation, LoginValidation
 }

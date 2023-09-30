@@ -1,13 +1,13 @@
 const express = require('express');
 const { userSignup, userLogin } = require('./authController');
-const { SignUpValidationSchema, LoginValidationSchema } = require('../middlewares/userValidation')
+const { SignUpValidation, LoginValidation } = require('../middlewares/userValidation')
 
 const router = express.Router();
 
-router.post('/signup', SignUpValidationSchema, userSignup) // create a new user
-router.post('/login', LoginValidationSchema, userLogin) // user login
+router.post('/signup', SignUpValidation, userSignup) // create a new user
+router.post('/login', LoginValidation, userLogin) // user login
 
 
-const authRoutes = router;
+const AuthRouter = router;
 
-module.exports = { authRoutes };
+module.exports = { AuthRouter };

@@ -10,7 +10,7 @@ const bearerTokenAuth = async (req, res, next) => {
             return res.status(401).json({ message: 'You are not authenticated.'})
         }
 
-        const token = authHeader.authorization;
+        const token = authHeader.authorization.split(' ')[1];
 
         const decoded = await jwt.verify(token, JWT_SECRET)
 
@@ -23,10 +23,12 @@ const bearerTokenAuth = async (req, res, next) => {
         }
         req.user = user;
 
-        
+      next()  
     } catch (error){
         return res.status(401).json({
     message: "Unauthorized"
 })
     }
 };
+
+module.exports = { bearerTokenAuth };

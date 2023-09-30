@@ -103,12 +103,31 @@ User Login Endpoint [http://localhost:4005/api/auth/login](http://localhost:4005
             "gender": "female
          }
 
-* To modify an existing person's details (PATCH request)
+* To create a new post (POST request)
 
 ```shell
-http://localhost:4001/api/user_id
+http://localhost:4001/api/posts/create-post
 ```
+Post Creation Endpoint [http://localhost:4005/api/posts/create-post](http://localhost:4005/api/posts/create-post)  
 
+Create Post
+
+    Request:  
+        HTTP Method: POST  
+        Endpoint: /api/posts/create-post
+        Request Body:
+            { 
+                "title": "Post Title",
+                "content": "Post Content"
+            }
+        Response: HTTP Status Code: 201 Created
+        Response Body:
+            { 
+                "title": "Post Title",
+                "content": "Post Content"
+            }
+
+            
 * To remove person (DELETE request)
 
 ```shell
