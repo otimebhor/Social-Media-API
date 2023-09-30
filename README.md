@@ -133,9 +133,9 @@ Create Post
 ```shell
 http://localhost:4001/api/posts/
 ```
-Get all Posts Endpoint [http://localhost:4005/api/posts/](http://localhost:4005/api/posts/)  
+Read all Posts Endpoint [http://localhost:4005/api/posts/](http://localhost:4005/api/posts/)  
 
-Get All Posts
+Read all Posts
 
     Request:  
         HTTP Method: GET  

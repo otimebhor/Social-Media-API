@@ -25,12 +25,27 @@ const createPost = async (req, res) => {
     }
 };
 
-// get all posts
+// read all posts
 const getPosts = async(req, res) => {
     const posts = await PostModel.findAll();
 
     return res.status(200).json(posts)
 };
 
+// read a single post
+const singlePost = async (req, res) => {
+    const id = req.params.id;
 
-module.exports = { createPost, getPosts };
+    // check if post exist
+
+    const post = await PostModel.findOne({where: {id: id}});
+
+    if (!post) {
+        return res.status(404).json({error: "Post not found"})
+    };
+
+    return res.status(200).json(post);
+}
+
+
+module.exports = { createPost, getPosts, singlePost };
