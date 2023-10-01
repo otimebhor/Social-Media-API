@@ -5,7 +5,7 @@ const { UserModel } = require("../User/userModel")
 
 const PostModel = DB.define('post', {
     title: {
-        type: Sequelize.STRING(120),
+        type: Sequelize.STRING,
         allowNull: false,
         validate: {
           notNull: {
@@ -22,12 +22,29 @@ const PostModel = DB.define('post', {
           },
         },
       },
+      user_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "Users",
+          },
+          key: "id",
+          field: 'user_id'
+        },
+        allowNull: false,
+      }
+
   
 
 });
 
-UserModel.hasMany(PostModel);
-PostModel.belongsTo(UserModel);
+UserModel.hasMany(PostModel, {
+    foreignKey: 'user_id',
+  });
+PostModel.belongsTo(UserModel, {
+    foreignKey: 'user_id',
+});
+
 
 
 

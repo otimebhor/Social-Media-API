@@ -6,8 +6,7 @@ const { JWT_EXPIRE, JWT_SECRET } = require("../config");
 
  // create signed jwt token
 const getSignedJwtToken = function (user) {
-    let body = { id: user.id, email: user.email };
-    return jwt.sign({ user: body }, JWT_SECRET, {
+    return jwt.sign( { id: user.id, email: user.email }, JWT_SECRET, {
       expiresIn: JWT_EXPIRE,
     });
   };
@@ -43,7 +42,7 @@ const userSignup = async (req, res) => {
   });
 
   if (checkUser) {
-    if (checkUser) {
+    if (checkUser.email == email) {
       return res.status(400).json({
         status: "fail",
         data: "Email already exist",

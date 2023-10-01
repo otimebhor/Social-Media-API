@@ -6,6 +6,8 @@ A simple REST API for a simplified social media platform capable of CRUD operati
 
 * Uses javascript
 * Basic mysql/sequlize model setup
+* Joi package was used for validation
+
 
 _ _ _ _
 
@@ -148,15 +150,88 @@ Read all Posts
                 { 
                 "id": 1
                 "title": "Post Title",
-                "content": "Post Content"
+                "content": "Post Content",
+                "user_id": 2
                 }, 
                 {
                 "id": 2
                 "title": "Post Title",
-                "content": "Post Content"
+                "content": "Post Content",
+                "user_id": 1
                 }
             
             
             }
 
+* To read a single post (GET request)
+
+```shell
+http://localhost:4001/api/posts/{post_id}
+```
+Read single Post Endpoint [http://localhost:4005/api/posts/{post_id}](http://localhost:4005/api/posts/{post_id})  
+
+Read Single Post
+
+    Request:  
+        HTTP Method: GET  
+        Endpoint: /api/posts/1
+        Request Body:
+            { }
+        Response: HTTP Status Code: 200 OK
+        Response Body:
+            {
+               "id": 1
+                "title": "Post Title",
+                "content": "Post Content",
+                "user_id": 2
+            
+            }
+
+* To edit a single post (PATCH request)
+
+```shell
+http://localhost:4001/api/posts/edit-post/{post_id}
+```
+Edit Post Endpoint [http://localhost:4005/api/posts/edit-post/{post_id}](http://localhost:4005/api/posts/edit-post/{post_id})  
+
+Edit Single Post
+
+    Request:  
+        HTTP Method: PATCH 
+        Endpoint: /api/posts/edit-post/1
+        Request Body:
+            { 
+                "title": "Updated title",
+                "content": "Updated content!"
+            }
+        Response: HTTP Status Code: 200 OK
+        Response Body:
+            {
+               "id": 1
+                "title": "Updated title",
+                "content": "Updated title",
+                "user_id": 2
+            
+            }
+            
+
+* To delete a single post (DELETE request)
+
+```shell
+http://localhost:4001/api/posts/{post_id}
+```
+Delete Post Endpoint [http://localhost:4005/api/posts/{post_id}](http://localhost:4005/api/posts/{post_id})  
+
+Delete Single Post
+
+    Request:  
+        HTTP Method: DELETE
+        Endpoint: /api/posts/1
+        Request Body:
+            { }
+        Response: HTTP Status Code: 200 OK
+        Response Body:
+            {
+                "message" : "Post deleted successfully."
+            }
             
