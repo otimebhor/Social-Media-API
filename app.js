@@ -4,6 +4,7 @@ const DB = require("./database");
 // const userRouter = require("./Users/userRouter");
 const { AuthRouter } = require("./Auth/authRouter");
 const { PostRouter } = require("./Post/postRouter");
+const { CommentRouter } = require("./Comment/commentRouter");
 
 const PORT = 4005;
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', AuthRouter);
 app.use('/api/posts', PostRouter);
+app.use('/api/comments', CommentRouter);
 
 
 

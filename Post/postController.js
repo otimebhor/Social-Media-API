@@ -1,7 +1,5 @@
 
-const { UserModel } = require("../User/userModel");
 const { PostModel } = require("./postModel")
-const { Op } = require("sequelize");
 
 
 // create new post
