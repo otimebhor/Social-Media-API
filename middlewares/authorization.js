@@ -24,7 +24,7 @@ exports.protect = async (req, res, next) => {
     }
     try {
         const decodedData = jwt.verify(token, JWT_SECRET);
-        console.log(decodedData)
+       
         
         const userDetails  = await UserModel.findByPk(decodedData.id);
         

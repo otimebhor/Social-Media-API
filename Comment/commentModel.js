@@ -5,8 +5,8 @@ const { UserModel } = require("../User/userModel");
 const { PostModel } = require("../Post/postModel")
 
 const CommentModel = DB.define('comment', {
-      content: {
-        type: Sequelize.TEXT,
+    content: {
+        type: DataTypes.TEXT,
         allowNull: false,
         validate: {
           notNull: {
@@ -15,7 +15,7 @@ const CommentModel = DB.define('comment', {
         },
       },
       user_id: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         references: {
           model: {
             tableName: "Users",
@@ -26,7 +26,7 @@ const CommentModel = DB.define('comment', {
         allowNull: false,
       },
       post_id: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         references: {
           model: {
             tableName: "Posts",
@@ -35,7 +35,7 @@ const CommentModel = DB.define('comment', {
           field: 'post_id'
         },
         allowNull: false,
-    }
+      }
 
   
 
@@ -51,17 +51,85 @@ CommentModel.belongsTo(UserModel, {
 PostModel.hasMany(CommentModel, {
     foreignKey: 'post_id',
   });
-CommentModel.belongsTo( PostModel, {
+CommentModel.belongsTo(PostModel, {
     foreignKey: 'post_id',
 });
 
 
 
-
-CommentModel.sync({ alter: force }).then(() => {
+CommentModel.sync({ alter: true }).then(() => {
     console.log('Comment table created successfully!');
  }).catch((error) => {
     console.error('Unable to create table : ', error);
  });
  
- module.exports = { CommentModel }
+ module.exports = { CommentModel };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

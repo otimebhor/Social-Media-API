@@ -1,10 +1,13 @@
 const express = require('express');
 const { protect } = require('../middlewares/authorization');
-const { createComment } = require('./commentController');
+const { createComment, getComments } = require('./commentController');
+const { CreateCommentValidation } = require('../middlewares/commentValidation');
+
 
 const router = express.Router();
 
-router.post('/:post_id', protect, createComment);
+router.post('/:post_id', CreateCommentValidation, protect, createComment);
+router.get('/:post_id', getComments );
 
 
 

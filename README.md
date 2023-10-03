@@ -26,7 +26,13 @@ npm install
 ## Run It
 
 ```shell
-node app.js
+nodemon app.js
+```
+
+For testing
+
+```shell
+npm test
 ```
 
 ## Try It
@@ -43,12 +49,11 @@ http://localhost:4005/api/auth/signup
 CREATE User Endpoint [http://localhost:4005/api/auth/signup](http://localhost:4005/api/auth/signup)  
 
 Create new User (User Signup)  
-
-    Request:  
+ Request:  
         HTTP Method: POST  
         Endpoint: /api/auth/signup
         Request Body:
-            { 
+            {
                 "first_name": "Jane",
                 "last_name": "Doe",
                 "username" : "janey",
@@ -57,7 +62,6 @@ Create new User (User Signup)
                 "password": "123456",
                 "date_of_birth" : "10/10/2000",
                 "gender" : "female
-               
             }
         Response: HTTP Status Code: 201 Created
         Response Body:
@@ -82,7 +86,6 @@ http://localhost:4001/api/auth/login
 User Login Endpoint [http://localhost:4005/api/auth/login](http://localhost:4005/api/auth/login)  
 
  User Login
-
     Request:  
         HTTP Method: POST  
         Endpoint: /api/auth/login
@@ -113,7 +116,6 @@ http://localhost:4001/api/posts/create-post
 Post Creation Endpoint [http://localhost:4005/api/posts/create-post](http://localhost:4005/api/posts/create-post)  
 
 Create Post
-
     Request:  
         HTTP Method: POST  
         Endpoint: /api/posts/create-post
@@ -135,10 +137,10 @@ Create Post
 ```shell
 http://localhost:4001/api/posts/
 ```
+
 Read all Posts Endpoint [http://localhost:4005/api/posts/](http://localhost:4005/api/posts/)  
 
 Read all Posts
-
     Request:  
         HTTP Method: GET  
         Endpoint: /api/posts/
@@ -147,7 +149,7 @@ Read all Posts
         Response: HTTP Status Code: 200 OK
         Response Body:
             {
-                { 
+                {
                 "id": 1
                 "title": "Post Title",
                 "content": "Post Content",
@@ -159,8 +161,6 @@ Read all Posts
                 "content": "Post Content",
                 "user_id": 1
                 }
-            
-            
             }
 
 * To read a single post (GET request)
@@ -168,10 +168,10 @@ Read all Posts
 ```shell
 http://localhost:4001/api/posts/{post_id}
 ```
+
 Read single Post Endpoint [http://localhost:4005/api/posts/{post_id}](http://localhost:4005/api/posts/{post_id})  
 
 Read Single Post
-
     Request:  
         HTTP Method: GET  
         Endpoint: /api/posts/1
@@ -184,23 +184,22 @@ Read Single Post
                 "title": "Post Title",
                 "content": "Post Content",
                 "user_id": 2
-            
-            }
+}
 
 * To edit a single post (PATCH request)
 
 ```shell
 http://localhost:4001/api/posts/edit-post/{post_id}
 ```
+
 Edit Post Endpoint [http://localhost:4005/api/posts/edit-post/{post_id}](http://localhost:4005/api/posts/edit-post/{post_id})  
 
 Edit Single Post
-
     Request:  
         HTTP Method: PATCH 
         Endpoint: /api/posts/edit-post/1
         Request Body:
-            { 
+            {
                 "title": "Updated title",
                 "content": "Updated content!"
             }
@@ -211,9 +210,7 @@ Edit Single Post
                 "title": "Updated title",
                 "content": "Updated title",
                 "user_id": 2
-            
-            }
-            
+                }
 
 * To delete a single post (DELETE request)
 
@@ -223,7 +220,6 @@ http://localhost:4001/api/posts/{post_id}
 Delete Post Endpoint [http://localhost:4005/api/posts/{post_id}](http://localhost:4005/api/posts/{post_id})  
 
 Delete Single Post
-
     Request:  
         HTTP Method: DELETE
         Endpoint: /api/posts/1
@@ -234,4 +230,88 @@ Delete Single Post
             {
                 "message" : "Post deleted successfully."
             }
+
+
+* To create a comment (POST request)
+
+```shell
+http://localhost:4001/api/comments/{post_id}
+```
+
+Create Endpoint [http://localhost:4005/api/comments/{post_id}](http://localhost:4005/api/comments/{post_id})  
+
+Create new comment 
+    Request:  
+        HTTP Method: POST
+        Endpoint: /api/comments/1
+        Request Body:
+            { 
+                 "content" : "This is a new comment."
+            }
+        Response: HTTP Status Code: 201 Created
+        Response Body:
+            {
+                "id": 3,
+                "content": "This is a new comment.",
+                "post_id": "1",
+                "user_id": 2,
+            }
+
+* To get all comments on a post (GET request)
+
+```shell
+http://localhost:4001/api/comments/{post_id}
+```
+
+Get All Comment Endpoint [http://localhost:4005/api/comments/{post_id}](http://localhost:4005/api/comments/{post_id})  
+
+Get all comments 
+    Request:  
+        HTTP Method: GET
+        Endpoint: /api/comments/1
+        Request Body:
+            { }
+        Response: HTTP Status Code: 200 OK
+        Response Body:
+            {
+                [
+    {
+        "id": 1,
+        "content": "What an article.",
+        "user_id": 1,
+        "post_id": 1,
+        "post": {
+            "id": 1,
+            "title": "Learn how to program",
+            "content": "Become a pro in the tech world. Enroll in our tech school now",
+            "user_id": 2
+        }
+    },
+    {
+        "id": 2,
+        "content": "Nice one! The article was really insightful.",
+        "user_id": 1,
+        "post_id": 1,,
+        "post": {
+            "id": 1,
+            "title": "Learn how to program",
+            "content": "Become a pro in the tech world. Enroll in our tech school now",
+            "user_id": 2
+        }
+    },
+    {
+        "id": 3,
+        "content": "Thank you for this.",
+        "user_id": 2,
+        "post_id": 1,
+        "post": {
+            "id": 1,
+            "title": "Learn how to program",
+            "content": "Become a pro in the tech world. Enroll in our tech school now",
+            "user_id": 2
+        }
+    }
+]
+            }
             
+
