@@ -108,69 +108,43 @@ const editComment = async(req, res) => {
 
 };
 
+const deleteComment = async (req, res) => {
+    const user = req.user;
+    const { comment_id} = req.params;
+    const { post_id } = req.params;
 
+    // find post
+    const post = await PostModel.findOne({
+        where: { id: post_id }
+    })
+    //find comment of current user 
 
+    let comment = await CommentModel.findOne({
+    where: { [Op.and]: [{ user_id: user.id}, {id: comment_id} ]}
+   });
 
+   if (!comment){
+    return res.status(401).json("Sorry, you cannot perform this action.")
+   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const editComment = async (req, res) => {
-//     const user = req.user;
-//    const post_id = req.params.id;
-//    const { title, content } = req.body;
-
-//    //check if post exist
-
-//    let post = await PostModel.findByPk(post_id);
-
-//    if (post){
-//     // check if user is authorized to edit post
-//     if (user.id != post.user_id){
-//         return res.status(401).json("You are not allowed to perform this action.")
-//     };
-
-
-//     let updated = await PostModel.update({ title, content }, {where: {id: post_id}})
-
-//     if (updated) {
-//         post = await PostModel.findByPk(post_id);
-
-//         return res.status(200).json({
-//             message: "Post updated successfully.", 
-//             post
+    if (post){
+        // delete comment
+        let deleted = await CommentModel.destroy(
+             { where: { id: comment_id }} );
             
-//     })
-//     } else{
-//         return res.status(401).json("Post was not updated.")
-//     }
+        if (deleted) {
+            
+            return res.status(200).json({
+                message: "Comment deleted successfully.", 
+            })
+            };
+    
+    }else {
+        return res.status(404).json("Post not found.")
+    };
+
+};
 
 
 
-//    }else {
-//     return res.status(404).json("Post not found")
-//    }
-// }
-
-
-  
-     
- 
- 
-
-
-module.exports = { createComment, getComments, editComment };
-
+module.exports = { createComment, getComments, editComment, deleteComment }

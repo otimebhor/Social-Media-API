@@ -344,3 +344,23 @@ Edit a comment
             "user_id": 2
         }
     }
+
+* To delete a comment (DELETE request)
+
+```shell
+http://localhost:4005/api/delete-comment/{post_id}/{comment_id}
+```
+
+Delete Comment Endpoint [http://localhost:4005/api/delete-comment/{post_id}/{comment_id}](http://localhost:4005/api/delete-comment/{post_id}/{comment_id})  
+
+Delete Single Comment
+    Request:  
+        HTTP Method: DELETE
+        Endpoint: /api/posts/1/3
+        Request Body:
+            { }
+        Response: HTTP Status Code: 200 OK
+        Response Body:
+            {
+                "message" : "Comment deleted successfully."
+            }
