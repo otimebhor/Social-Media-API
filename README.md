@@ -26,14 +26,11 @@ npm install
 ## Run It
 
 ```shell
-nodemon app.js
+nodemon server.js
 ```
 
-For testing
 
-```shell
-npm test
-```
+
 
 ## Try It
 

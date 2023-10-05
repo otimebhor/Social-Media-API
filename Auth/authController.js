@@ -36,7 +36,7 @@ const userSignup = async (req, res) => {
 
   const checkUser = await UserModel.findOne({
     where: {
-      [Op.or]: [{ email: email }, { phone_number: phone_number }],
+      [Op.or]: [{ email: email }, { phone_number: phone_number }, { username: username}],
     },
     raw: true,
   });
@@ -52,8 +52,13 @@ const userSignup = async (req, res) => {
         status: "fail",
         data: "Phone Number already exist",
       });
+    } else if (checkUser.username == username){
+      return res.status(400).json({
+        status: "fail",
+        data: "Username already exist",
+      });
     }
-  }
+  };
   //hashing password
 
   const hashedPassword = bcrypt.hashSync(password, 10);
