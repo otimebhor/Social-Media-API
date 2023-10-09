@@ -21,7 +21,7 @@ const createComment = async (req, res) => {
       user_id,
     });
 
-    if (newComment){
+    if (comment){
         res.status(201).json({
             status: "Success",
             comment

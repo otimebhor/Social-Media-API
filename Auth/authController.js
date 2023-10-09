@@ -115,7 +115,8 @@ const userLogin = async (req, res) => {
     //generate token
     const token = getSignedJwtToken(user);
 
-    res.status(201).json({
+    res.status(200).json({
+      message: "Login successful",
        user,
       token,
     });

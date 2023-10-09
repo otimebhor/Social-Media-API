@@ -9,6 +9,7 @@ A simple REST API for a simplified social media platform capable of CRUD operati
 * Joi package was used for validation
 
 
+
 _ _ _ _
 
 ## Quick Start
@@ -29,8 +30,11 @@ npm install
 nodemon server.js
 ```
 
+## To test
 
-
+```shell
+npm test
+```
 
 ## Try It
 
@@ -91,7 +95,7 @@ User Login Endpoint [http://localhost:4005/api/auth/login](http://localhost:4005
                 "email": "janedoe@gmail.com",
                 "password": "123456",
             }
-        Response: HTTP Status Code: 201 Created
+        Response: HTTP Status Code: 200 OK
         Response Body:
              { 
             "id": 1,

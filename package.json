@@ -18,9 +18,11 @@
     "mysql2": "^3.6.1",
     "nodemon": "^3.0.1",
     "sequelize": "^6.33.0",
+    "sqlite3": "^5.1.6",
     "supertest": "^6.3.3"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "jest": "^29.7.0"
   }
 }

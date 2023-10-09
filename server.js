@@ -1,11 +1,7 @@
 const app = require("./app");
-
-const DB = require("./database");
-
 const { PORT } = require("./config");
 
-
-
+const DB = require("./database");
 
 
 // DB connection
@@ -22,3 +18,8 @@ DB.authenticate()
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}...`);
   });
+
+
+
+
+
