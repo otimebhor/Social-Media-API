@@ -51,9 +51,12 @@ CREATE User Endpoint [http://localhost:4005/api/auth/signup](http://localhost:40
 
 Create new User (User Signup)  
  Request:  
-        HTTP Method: POST  
-        Endpoint: /api/auth/signup
-        Request Body:
+        HTTP Method: POST   
+
+        Endpoint: /api/auth/signup  
+
+        Request Body:  
+
             {
                 "first_name": "Jane",
                 "last_name": "Doe",
@@ -63,9 +66,11 @@ Create new User (User Signup)
                 "password": "123456",
                 "date_of_birth" : "10/10/2000",
                 "gender" : "female
-            }
-        Response: HTTP Status Code: 201 Created
-        Response Body:
+            }  
+        Response: HTTP Status Code: 201 Created  
+
+        Response Body:  
+
              { 
             "id": 1,
             "first_name": "Jane",
@@ -86,17 +91,25 @@ http://localhost:4005/api/auth/login
 
 User Login Endpoint [http://localhost:4005/api/auth/login](http://localhost:4005/api/auth/login)  
 
- User Login
-    Request:  
-        HTTP Method: POST  
-        Endpoint: /api/auth/login
-        Request Body:
+ User Login  
+
+    Request:   
+
+        HTTP Method: POST    
+
+        Endpoint: /api/auth/login  
+
+        Request Body:  
+
             { 
                 "email": "janedoe@gmail.com",
                 "password": "123456",
-            }
-        Response: HTTP Status Code: 200 OK
-        Response Body:
+            }  
+
+        Response: HTTP Status Code: 200 OK  
+
+        Response Body:  
+
              { 
             "id": 1,
             "first_name": "Jane",
@@ -116,17 +129,25 @@ http://localhost:4005/api/posts/create-post
 ```
 Post Creation Endpoint [http://localhost:4005/api/posts/create-post](http://localhost:4005/api/posts/create-post)  
 
-Create Post
-    Request:  
-        HTTP Method: POST  
-        Endpoint: /api/posts/create-post
-        Request Body:
+Create Post  
+
+    Request:    
+
+        HTTP Method: POST    
+
+        Endpoint: /api/posts/create-post  
+
+        Request Body:  
+
             { 
                 "title": "Post Title",
                 "content": "Post Content"
-            }
-        Response: HTTP Status Code: 201 Created
-        Response Body:
+            }  
+
+        Response: HTTP Status Code: 201 Created  
+
+        Response Body:  
+
             { 
                 "title": "Post Title",
                 "content": "Post Content"
@@ -141,14 +162,22 @@ http://localhost:4005/api/posts/
 
 Read all Posts Endpoint [http://localhost:4005/api/posts/](http://localhost:4005/api/posts/)  
 
-Read all Posts
-    Request:  
+Read all Posts  
+
+    Request:   
+
         HTTP Method: GET  
-        Endpoint: /api/posts/
-        Request Body:
-            { }
-        Response: HTTP Status Code: 200 OK
-        Response Body:
+
+        Endpoint: /api/posts/  
+
+        Request Body:  
+
+            { }  
+
+        Response: HTTP Status Code: 200 OK  
+
+        Response Body:  
+
             {
                 {
                 "id": 1
@@ -172,14 +201,22 @@ http://localhost:4005/api/posts/{post_id}
 
 Read single Post Endpoint [http://localhost:4005/api/posts/{post_id}](http://localhost:4005/api/posts/{post_id})  
 
-Read Single Post
+Read Single Post  
+
     Request:  
+
         HTTP Method: GET  
-        Endpoint: /api/posts/1
-        Request Body:
-            { }
-        Response: HTTP Status Code: 200 OK
-        Response Body:
+
+        Endpoint: /api/posts/1  
+
+        Request Body:  
+
+            { }  
+
+        Response: HTTP Status Code: 200 OK  
+
+        Response Body:  
+
             {
                "id": 1
                 "title": "Post Title",
@@ -195,17 +232,25 @@ http://localhost:4005/api/posts/edit-post/{post_id}
 
 Edit Post Endpoint [http://localhost:4005/api/posts/edit-post/{post_id}](http://localhost:4005/api/posts/edit-post/{post_id})  
 
-Edit Single Post
-    Request:  
-        HTTP Method: PATCH 
-        Endpoint: /api/posts/edit-post/1
-        Request Body:
+Edit Single Post  
+
+    Request:   
+
+        HTTP Method: PATCH  
+
+        Endpoint: /api/posts/edit-post/1  
+
+        Request Body:  
+
             {
                 "title": "Updated title",
                 "content": "Updated content!"
-            }
-        Response: HTTP Status Code: 200 OK
-        Response Body:
+            }   
+
+        Response: HTTP Status Code: 200 OK  
+
+        Response Body:  
+
             {
                "id": 1
                 "title": "Updated title",
@@ -220,14 +265,22 @@ http://localhost:4005/api/posts/{post_id}
 ```
 Delete Post Endpoint [http://localhost:4005/api/posts/{post_id}](http://localhost:4005/api/posts/{post_id})  
 
-Delete Single Post
-    Request:  
-        HTTP Method: DELETE
-        Endpoint: /api/posts/1
-        Request Body:
-            { }
-        Response: HTTP Status Code: 200 OK
-        Response Body:
+Delete Single Post  
+
+    Request:    
+
+        HTTP Method: DELETE  
+
+        Endpoint: /api/posts/1  
+
+        Request Body:  
+
+            { }  
+
+        Response: HTTP Status Code: 200 OK  
+
+        Response Body:  
+
             {
                 "message" : "Post deleted successfully."
             }
@@ -241,16 +294,24 @@ http://localhost:4005/api/comments/{post_id}
 
 Create Endpoint [http://localhost:4005/api/comments/{post_id}](http://localhost:4005/api/comments/{post_id})  
 
-Create new comment 
+Create new comment   
+
     Request:  
-        HTTP Method: POST
-        Endpoint: /api/comments/1
-        Request Body:
+
+        HTTP Method: POST  
+
+        Endpoint: /api/comments/1  
+
+        Request Body:  
+
             { 
                  "content" : "This is a new comment."
-            }
-        Response: HTTP Status Code: 201 Created
-        Response Body:
+            }  
+
+        Response: HTTP Status Code: 201 Created  
+
+        Response Body:  
+
             {
                 "id": 3,
                 "content": "This is a new comment.",
@@ -266,14 +327,22 @@ http://localhost:4005/api/comments/{post_id}
 
 Get All Comment Endpoint [http://localhost:4005/api/comments/{post_id}](http://localhost:4005/api/comments/{post_id})  
 
-Get all comments 
-    Request:  
-        HTTP Method: GET
-        Endpoint: /api/comments/1
-        Request Body:
-            { }
-        Response: HTTP Status Code: 200 OK
-        Response Body:
+Get all comments   
+
+    Request:   
+
+        HTTP Method: GET  
+
+        Endpoint: /api/comments/1  
+
+        Request Body:  
+
+            { }  
+
+        Response: HTTP Status Code: 200 OK  
+
+        Response Body:  
+
             {
                 [
     {
@@ -323,16 +392,24 @@ http://localhost:4005/api/comments/edit-comment/{post_id}/{comment_id}
 
 Edit Comment Endpoint [http://localhost:4005/api/comments/edit-comment/{post_id}/{comment_id}](http://localhost:4005/api/comments/edit-comment/{post_id}/{comment_id})  
 
-Edit a comment
+Edit a comment  
+
     Request:  
-        HTTP Method: PATCH
-        Endpoint: /api/comments/edit-comment/1/3
-        Request Body:
+
+        HTTP Method: PATCH  
+
+        Endpoint: /api/comments/edit-comment/1/3  
+
+        Request Body:  
+
             {
                 "content": "Wow. I will like to know more."
-            }
-        Response: HTTP Status Code: 200 OK
-        Response Body:
+            }  
+
+        Response: HTTP Status Code: 200 OK  
+
+        Response Body:  
+
             {
         "id": 3,
         "content": "Wow. I will like to know more.",
@@ -354,14 +431,22 @@ http://localhost:4005/api/delete-comment/{post_id}/{comment_id}
 
 Delete Comment Endpoint [http://localhost:4005/api/delete-comment/{post_id}/{comment_id}](http://localhost:4005/api/delete-comment/{post_id}/{comment_id})  
 
-Delete Single Comment
+Delete Single Comment  
+
     Request:  
-        HTTP Method: DELETE
-        Endpoint: /api/posts/1/3
-        Request Body:
-            { }
-        Response: HTTP Status Code: 200 OK
-        Response Body:
+
+        HTTP Method: DELETE  
+
+        Endpoint: /api/posts/1/3  
+
+        Request Body:  
+
+            { }  
+
+        Response: HTTP Status Code: 200 OK  
+
+        Response Body:  
+        
             {
                 "message" : "Comment deleted successfully."
             }
